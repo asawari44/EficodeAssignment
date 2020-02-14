@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<title>Your way home....</title>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+   <body>
+   <h2>Routes...</h2>
+   {% for item in items %}
+     <p> </p> 
+     <table>
+      <tr>
+      <td></td>
+      <td>FROM(CODE)</td>
+      <td>TO(CODE)</td>
+      <td>LEAVES AT</td>
+      <td>REACHES DESTINATION AT</td>
+      <td>MODE OF TRANSPORT</td>
+      <td>TOTAL DISTANCE (kms)</td>
+      </tr>
+     {% for leg in item.legs %}
+      <tr>
+      <td></td>
+      <td>{{leg.from.name}}({{leg.from.stop.code}})</td>
+      <td>{{leg.to.name}}({{leg.to.stop.code}})</td>
+      <td><span>{{leg.startTime}}</span></td>
+      <td><span>{{leg.endTime}}</span></td>
+      <td>{{leg.mode}}</td>
+      <td>{{leg.distance}}</td>
+      </tr>
+      {% endfor %}
+      </table>
+   {% endfor %}
+</table>      
+   </body>
+</html>
