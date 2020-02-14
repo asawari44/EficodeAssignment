@@ -19,7 +19,7 @@ def get_destination():
     location_detail = request.form["location"]
     location_detail = location_detail.strip()
     if(location_detail != ''):
-      key = "AIzaSyDkhgQK2cM1nHlv6TcgffFjVO_aZIaHUW0"
+      key = "PUT YOUR GCP API KEY FOR MAPS HERE..."
       os.environ["GOOGLE_API_KEY"] =key
       locator = Nominatim(user_agent="myGeocoder")
       location = locator.geocode(location_detail)
